@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from 'react'
 import useDevice, { DeviceInfo } from './useDevice'
 
-interface Props {
+export interface Props {
   children?: (deviceInfo: DeviceInfo) => React.ReactElement
 }
 
