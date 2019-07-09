@@ -1,12 +1,16 @@
-import React from 'react'
+import React, { FunctionComponent } from 'react'
 import useDevice, { DeviceInfo } from './useDevice'
 
-const DeviceDetector = ({
-  children,
-}: {
-  children: (deviceInfo: DeviceInfo) => React.ReactNode
-}) => {
+interface Props {
+  children?: (deviceInfo: DeviceInfo) => React.ReactElement
+}
+
+const DeviceDetector: FunctionComponent<Props> = ({ children }) => {
   const { device, isMobile } = useDevice()
+
+  if (!children) {
+    return null
+  }
 
   return children({ device, isMobile })
 }
