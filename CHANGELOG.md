@@ -7,8 +7,14 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Added
+
+- `withDevice` HOC.
+
 ## [0.1.1] - 2019-07-10
 
 ## [0.1.0] - 2019-07-09
+
 ### Added
+
 - First publish of the component
