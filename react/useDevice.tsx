@@ -20,7 +20,7 @@ const useDevice = () => {
    * Tachyons breakpoints. They should probably be the ones
    * configured via the style.json file, if available. */
   const isScreenMedium = useMedia({ minWidth: '40rem' })
-  const isScreenLarge = useMedia({ minWidth: '64rem' })
+  const isScreenLarge = useMedia({ minWidth: '64.1rem' })
 
   if (isSSR) {
     return {
