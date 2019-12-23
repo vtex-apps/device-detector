@@ -18,16 +18,16 @@ interface Breakpoints {
 }
 
 const useDevice = (breakpoints?: Breakpoints) => {
-  const { medium, large } = breakpoints || {
-    medium: '40rem',
-    large: '61.25rem',
-  }
-  const isSSR = useSSR()
-  const { hints } = useRuntime()
-
   /** These screensizes are hardcoded, based on the default
    * Tachyons breakpoints. They should probably be the ones
    * configured via the style.json file, if available. */
+
+  const { medium, large } = breakpoints || {
+    medium: '40rem',
+    large: '64.1rem',
+  }
+  const isSSR = useSSR()
+  const { hints } = useRuntime()
   const isScreenMedium = useMedia({ minWidth: medium })
   const isScreenLarge = useMedia({ minWidth: large })
 
