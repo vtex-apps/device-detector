@@ -7,6 +7,7 @@ Use this app's HOC or hook to find out current device's viewport size.
 #### useDevice
 
 Returns an object with the format of `DeviceInfo` defined as:
+
 ```js
 interface DeviceInfo {
   device: Device
@@ -24,7 +25,7 @@ enum Device {
 import { useDevice } from 'vtex.device-detector'
 const MyComponent = props => {
   const { isMobile } = useDevice()
-  if (isMobile) { 
+  if (isMobile) {
     // is phone or tablet!
   }
   return ...
@@ -37,10 +38,32 @@ or
 import { useDevice } from 'vtex.device-detector'
 const MyComponent = props => {
   const { device } = useDevice()
-  if (device === 'tablet') { 
+  if (device === 'tablet') {
     //is tablet!
   }
   return ...
+}
+```
+
+or even with custom breakpoints
+
+```js
+import { useDevice } from 'vtex.device-detector'
+const MyComponent = props => {
+  const { device } = useDevice({ large: '61.25rem' }) // custom breakpoint argument
+  if (device === 'tablet') {
+    //is tablet!
+  }
+  return ...
+}
+```
+
+you can specify custom breakpoints using the following specification:
+
+```typescript
+interface Breakpoints {
+  medium: string;
+  large: string;
 }
 ```
 
@@ -63,7 +86,7 @@ enum Device {
 ```js
 import { withDevice } from 'vtex.device-detector'
 const MyComponent = props => {
-  if (props.isMobile) { 
+  if (props.isMobile) {
     // is phone or tablet!
   }
   return ...
@@ -77,7 +100,7 @@ or
 ```js
 import { useDevice } from 'vtex.device-detector'
 const MyComponent = props => {
-  if (props.device === 'tablet') { 
+  if (props.device === 'tablet') {
     //is tablet!
   }
   return ...
