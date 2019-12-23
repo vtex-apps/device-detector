@@ -12,15 +12,24 @@ export enum Device {
   desktop = 'desktop',
 }
 
-const useDevice = () => {
+interface Breakpoints {
+  medium: string
+  large: string
+}
+
+const useDevice = (breakpoints?: Breakpoints) => {
+  const { medium, large } = breakpoints || {
+    medium: '40rem',
+    large: '61.25rem',
+  }
   const isSSR = useSSR()
   const { hints } = useRuntime()
 
   /** These screensizes are hardcoded, based on the default
    * Tachyons breakpoints. They should probably be the ones
    * configured via the style.json file, if available. */
-  const isScreenMedium = useMedia({ minWidth: '40rem' })
-  const isScreenLarge = useMedia({ minWidth: '64.1rem' })
+  const isScreenMedium = useMedia({ minWidth: medium })
+  const isScreenLarge = useMedia({ minWidth: large })
 
   if (isSSR) {
     return {
