@@ -45,12 +45,14 @@ const MyComponent = props => {
 }
 ```
 
-or even with custom breakpoints
+**⚠ Experimental**
+With custom breakpoints
 
 ```js
 import { useDevice } from 'vtex.device-detector'
 const MyComponent = props => {
-  const { device } = useDevice({ large: '61.25rem' }) // custom breakpoint argument
+  const experimentalBreakpoints = { large: '61.25rem' };
+  const { device } = useDevice({ experimentalBreakpoints }) // custom breakpoint argument
   if (device === 'tablet') {
     //is tablet!
   }
@@ -61,9 +63,13 @@ const MyComponent = props => {
 you can specify custom breakpoints using the following specification:
 
 ```typescript
+interface useDeviceOptions {
+  experimentalBreakpoints?: Breakpoints;
+}
+
 interface Breakpoints {
-  medium: string;
-  large: string;
+  medium?: string;
+  large?: string;
 }
 ```
 
