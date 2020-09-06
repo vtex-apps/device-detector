@@ -1,5 +1,4 @@
-import { useMedia } from 'use-media'
-import { useSSR, useRuntime } from 'vtex.render-runtime'
+import { useRuntime } from 'vtex.render-runtime'
 
 export interface DeviceInfo {
   device: Device
@@ -13,16 +12,12 @@ export enum Device {
 }
 
 const useDevice = () => {
-  const isSSR = useSSR()
-  const { hints } = useRuntime()
+  const { deviceInfo, hints } = useRuntime()
 
-  /** These screensizes are hardcoded, based on the default
-   * Tachyons breakpoints. They should probably be the ones
-   * configured via the style.json file, if available. */
-  const isScreenMedium = useMedia({ minWidth: '40rem' })
-  const isScreenLarge = useMedia({ minWidth: '64.1rem' })
+  if (!deviceInfo) {
+    /** Fallback code to support transition to device info coming
+     * from render-runtime. Should be removed in the near future */
 
-  if (isSSR) {
     return {
       device: hints.phone
         ? Device.phone
@@ -33,14 +28,9 @@ const useDevice = () => {
     }
   }
 
-  return {
-    device: isScreenLarge
-      ? Device.desktop
-      : isScreenMedium
-      ? Device.tablet
-      : Device.phone,
-    isMobile: !isScreenLarge,
-  }
+  const { type: device, isMobile } = deviceInfo
+
+  return { device, isMobile }
 }
 
 export default useDevice

@@ -4,10 +4,8 @@
     "lint": "tsc --noEmit && eslint --ext ts,tsx ."
   },
   "dependencies": {
-    "@vtex/css-handles": "^1.0.0",
     "react": "^16.8.3",
-    "react-dom": "^16.8.3",
-    "use-media": "^1.3.0"
+    "react-dom": "^16.8.3"
   },
   "devDependencies": {
     "@types/classnames": "^2.2.7",
@@ -22,7 +20,7 @@
     "eslint": "^5.16.0",
     "eslint-config-vtex-react": "^4.1.0",
     "prettier": "^1.18.2",
-    "typescript": "3.5.2"
+    "typescript": "3.8.3"
   },
   "version": "0.2.4"
 }
