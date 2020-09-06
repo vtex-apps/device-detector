@@ -1,7 +1,7 @@
 {
   "vendor": "vtex",
   "name": "device-detector",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "title": "Device Detector",
   "description": "Consistent device detection across SSR and CSR",
   "defaultLocale": "pt-BR",
