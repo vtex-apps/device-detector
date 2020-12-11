@@ -1,14 +1,11 @@
 import { useRuntime } from 'vtex.render-runtime'
+import type { RenderContext } from 'vtex.render-runtime'
+
+export type Device = RenderContext.RenderContext['deviceInfo']['type']
 
 export interface DeviceInfo {
   device: Device
   isMobile: boolean
-}
-
-export enum Device {
-  phone = 'phone',
-  tablet = 'tablet',
-  desktop = 'desktop',
 }
 
 const useDevice = () => {
@@ -19,11 +16,11 @@ const useDevice = () => {
      * from render-runtime. Should be removed in the near future */
 
     return {
-      device: hints.phone
-        ? Device.phone
+      device: (hints.phone
+        ? 'phone'
         : hints.tablet
-        ? Device.tablet
-        : Device.desktop,
+        ? 'tablet'
+        : 'desktop') as Device,
       isMobile: hints.mobile,
     }
   }

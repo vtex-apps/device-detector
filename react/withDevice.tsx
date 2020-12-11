@@ -1,16 +1,16 @@
-import React, { FC, ComponentType } from 'react'
-import useDevice, { DeviceInfo } from './useDevice'
+import React from 'react'
+import type { ComponentType } from 'react'
 
-interface WithDeviceProps {
-  deviceInfo: DeviceInfo
-}
+import useDevice from './useDevice'
 
-const withDevice = <P extends object>(
-  Component: ComponentType<P>
-): FC<P & WithDeviceProps> => ({ ...props }: WithDeviceProps) => {
-  const { isMobile, device } = useDevice()
+function withDevice<P>(Component: ComponentType<P>) {
+  const WithDeviceHOC = ({ ...props }: P) => {
+    const { isMobile, device } = useDevice()
 
-  return <Component device={device} isMobile={isMobile} {...(props as P)} />
+    return <Component device={device} isMobile={isMobile} {...props} />
+  }
+
+  return WithDeviceHOC
 }
 
 export default withDevice
