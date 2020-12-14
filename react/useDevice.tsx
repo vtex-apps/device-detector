@@ -1,7 +1,7 @@
 import { useRuntime } from 'vtex.render-runtime'
 import type { RenderContext } from 'vtex.render-runtime'
 
-export type Device = RenderContext.RenderContext['deviceInfo']['type']
+type Device = RenderContext.RenderContext['deviceInfo']['type']
 
 export interface DeviceInfo {
   device: Device

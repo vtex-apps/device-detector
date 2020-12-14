@@ -3,14 +3,14 @@ import type { RenderContext } from 'vtex.render-runtime'
 
 import useDevice from './useDevice'
 
-export type Device = RenderContext.RenderContext['deviceInfo']['type']
+type Device = RenderContext.RenderContext['deviceInfo']['type']
 
 export interface DeviceInfo {
   device: Device
   isMobile: boolean
 }
 
-export interface Props {
+interface Props {
   children?: (deviceInfo: DeviceInfo) => React.ReactElement
 }
 
