@@ -6,6 +6,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Fixed
+- Exported types would resolve to `any` in other apps trying to use them.
 
 ## [0.2.5] - 2020-09-06
 ### Changed
