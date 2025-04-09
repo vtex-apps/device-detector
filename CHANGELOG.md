@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Changed
+
+- Update GitHub actions/cache to v4
+
 ## [0.2.6] - 2020-12-15
 ### Fixed
 - Exported types would resolve to `any` in other apps trying to use them.
